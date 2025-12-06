@@ -28,7 +28,7 @@ const MapComp = ({
   // Fetch bin locations from database
   useEffect(() => {
     if (isLoaded) {
-      fetch("http://localhost:5001/api/bin")
+      fetch("/api/bin")
         .then(async (res) => {
           const contentType = res.headers.get("content-type");
 

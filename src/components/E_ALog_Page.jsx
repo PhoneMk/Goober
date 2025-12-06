@@ -32,7 +32,7 @@ const EditPage = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5001/api/auth/profile",
+          "/api/auth/profile",
           {
             headers: { "x-auth-token": localStorage.getItem("token") },
           }
@@ -87,7 +87,7 @@ const EditPage = () => {
       });
   
       const response = await axios.put(
-        "http://localhost:5001/api/auth/profile",
+        "/api/auth/profile",
         formData, 
         {
           headers: {

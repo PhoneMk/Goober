@@ -51,7 +51,7 @@ const InfoRegistPage = () => {
 
       if (imageFile) formData.append("profilePhoto", imageFile); // Append actual file
 
-      const res = await fetch("http://localhost:5001/api/auth/register", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         body: formData, // No need for headers, `FormData` sets them automatically
       });
@@ -62,7 +62,7 @@ const InfoRegistPage = () => {
         localStorage.setItem("token", data.token);
 
         const userResponse = await fetch(
-          "http://localhost:5001/api/auth/profile",
+          "/api/auth/profile",
           {
             headers: {
               "x-auth-token": data.token,

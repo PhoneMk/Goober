@@ -13,7 +13,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/bin")
+    fetch("/api/bin")
       .then(async (res) => {
         const contentType = res.headers.get("content-type");
 
@@ -35,7 +35,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
         console.error("Error fetching building data:", error);
       });
 
-    fetch(`http://localhost:5001/api/bin/${toiletData.id}`)
+    fetch(`"/api/bin/${toiletData.id}`)
       .then(async (res) => {
         const contentType = res.headers.get("content-type");
 
@@ -66,7 +66,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
   const handleYesClick = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/bin/${toiletData.id}/increase`,
+        `"/api/bin/${toiletData.id}/increase`,
         {
           method: "PUT",
           body: JSON.stringify({ userId: user.id }), // Send the user ID
@@ -96,7 +96,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
   const handleNoClick = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/bin/${toiletData.id}/decrease`,
+        `"/api/bin/${toiletData.id}/decrease`,
         {
           method: "PUT",
         }
@@ -121,7 +121,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5001/api/comment/", {
+      const response = await fetch("/api/comment/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -252,7 +252,7 @@ const ToiletModal = ({ isOpen, onClose, toiletData, isLoggedIn }) => {
             {comments.map((comment, index) => (
               <div key={index} className="flex mb-2 sm:mb-3">
                 <img
-                  src={`http://localhost:5001/${comment.user.profilePhoto}`}
+                  src={`"/${comment.user.profilePhoto}`}
                   className="rounded-full w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"
                   alt="Profile"
                 />

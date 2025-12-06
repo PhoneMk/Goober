@@ -42,7 +42,7 @@ const BadgesPage = () => {
       }
 
       try {
-        const res = await fetch("http://localhost:5001/api/badge/profile", {
+        const res = await fetch("/api/badge/profile", {
           method: "GET",
           headers: { "x-auth-token": token },
         });

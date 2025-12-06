@@ -45,7 +45,7 @@ const NavBar2 = ({ toggleSearch, togglePopupVisibility }) => {
       }
 
       try {
-        const res = await fetch("http://localhost:5001/api/auth/profile", {
+        const res = await fetch("/api/auth/profile", {
           method: "GET",
           headers: { "x-auth-token": token },
         });
@@ -107,7 +107,7 @@ const NavBar2 = ({ toggleSearch, togglePopupVisibility }) => {
     }
 
     try {
-      const res = await fetch("http://localhost:5001/api/auth/profile", {
+      const res = await fetch("/api/auth/profile", {
         method: "GET",
         headers: { "x-auth-token": token },
       });
@@ -144,7 +144,7 @@ const NavBar2 = ({ toggleSearch, togglePopupVisibility }) => {
         user_id: user.id,
       };
 
-      const response = await fetch("http://localhost:5001/api/bin", {
+      const response = await fetch("/api/bin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

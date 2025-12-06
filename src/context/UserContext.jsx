@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:5001/api/auth/profile", {
+        const response = await axios.get("/api/auth/profile", {
           headers: { "x-auth-token": token },
         });
 
