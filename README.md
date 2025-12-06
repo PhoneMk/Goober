@@ -1,10 +1,10 @@
-# Goober
+# React + Vite
 
-this one tis command for update the git
-//save
-git add .
-git commit -m "comment"
-git push
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-if you use git the fist time don't forget to run this command before ren above
-npm i react-router-dom
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+comment try
