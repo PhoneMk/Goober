@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goober-backend
+  namespace: goober
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: goober-backend
+  template:
+    metadata:
+      labels:
+        app: goober-backend
+    spec:
+      containers:
+        - name: backend
+          image: goober-backend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo-service:27017/goober"
+            - name: PORT
+              value: "5000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend  # <--- CHANGED FROM 'goober-backend' TO 'backend'
+  namespace: goober
+spec:
+  selector:
+    app: goober-backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
